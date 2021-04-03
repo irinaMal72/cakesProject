@@ -1,2 +1,0 @@
-# cakesProject
-for student project
