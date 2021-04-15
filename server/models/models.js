@@ -46,5 +46,6 @@ module.exports = {
     User,
     Basket,
     BasketCake,
-    Cake
+    Cake,
+    Type
 }
