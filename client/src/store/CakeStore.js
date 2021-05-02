@@ -4,11 +4,15 @@ export  default class UserStore{
     constructor() {
         this._types=[
             {id: 1, name: 'Торты'},
-            {id: 1, name: 'Пироженые'},
+            {id: 2, name: 'Пирожные'},
+            {id: 3, name: 'Кексы'},
+            {id: 4, name: 'Печенье'},
         ]
         this._cakes=[
           //должны быть элементы
         ]
+
+        this._selectedType={}
         makeAutoObservable(this)
     }
 
@@ -20,11 +24,20 @@ export  default class UserStore{
         this._cakes = cakes
     }
 
-    get IsTypes() {
+    setSelectedType(type){
+        this._selectedType=type
+    }
+
+    get types() {
         return this._types
     }
 
-    get Cakes() {
+    get cakes() {
         return this._cakes
     }
+
+    get selectedType() {
+        return this._selectedType
+    }
+
 }
