@@ -8,6 +8,7 @@ import Button from "react-bootstrap/Button";
 import {observer} from "mobx-react-lite";
 import Container from "react-bootstrap/Container";
 
+
 const NavBar = observer( () => { //отслеживание в режиме реального времени
     const {user}=useContext(Context)
     return (

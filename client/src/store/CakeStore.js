@@ -9,7 +9,13 @@ export  default class UserStore{
             {id: 4, name: 'Печенье'},
         ]
         this._cakes=[
-          //должны быть элементы
+            {id:1, name: 'Сладкоежка'},
+            {id:2, name: 'Муравейник'},
+            {id:3, name: 'Наполеон'},
+            {id:4, name: 'Красный бархат'},
+            {id:5, name: 'Сметанник'},
+            {id:6, name: 'Медовик'},
+
         ]
 
         this._selectedType={}
