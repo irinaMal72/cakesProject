@@ -7,6 +7,7 @@ import CakeStore from "./store/CakeStore";
 export const Context = createContext(null)
 
 
+
 ReactDOM.render(
     <Context.Provider value={{
         user: new UserStore(),

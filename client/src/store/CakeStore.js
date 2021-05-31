@@ -2,12 +2,7 @@ import {makeAutoObservable} from "mobx";
 
 export  default class UserStore{
     constructor() {
-        this._types=[
-            {id: 1, name: 'Торты'},
-            {id: 2, name: 'Пирожные'},
-            {id: 3, name: 'Кексы'},
-            {id: 4, name: 'Печенье'},
-        ]
+        this._types=[]
         this._cakes=[
             {id:1, name: 'Сладкоежка'},
             {id:2, name: 'Муравейник'},
