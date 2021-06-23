@@ -8,9 +8,8 @@ class  CakeController {
         try{
             const {name,description,price,typeId} = req.body
             const {img} = req.files
-            let fileName = uuid.v8() + ".jpg"
+            let fileName = uuid.v5() + ".jpg"
             img.mv(path.resolve(__dirname,'..','static',fileName))
-
 
             const  cake = await Cake.create({name,description,price,typeId,img:fileName})
             return  res.json(cake)
@@ -33,9 +32,14 @@ class  CakeController {
         }
         return  res.json(cakes)
     }
-    async getOne(req,res){
+    async getOne(req, res) {
         const {id} = req.params
-        const cake = await Cake.findOne({where:{id}})
+        const cake = await Cake.findOne(
+            {
+                where: {id},
+            },
+        )
+        return res.json(cake)
     }
 }
 

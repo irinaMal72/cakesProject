@@ -6,15 +6,14 @@ import {CAKE_ROUTE} from "../utils/consts";
 
 const CakeItem = ({cake}) => {
     const history = useHistory()
-    console.log(history)
     return (
         <Col md={3} className={"mt-3"} onClick={() => history.push(CAKE_ROUTE + '/'+cake.id)}>
             <Card style={{width: 150, cursor: 'pointer'}} border={'light'}>
-                <Image width={150} height={150} src={cake.img}/>
+                <Image width={150} height={150} src={process.env.REACT_APP_API_URL +cake.img}/>
                 <div className="mt-1 d-flex justify-content-between align-items-center">
-                    <div>Сладкоежка...</div>
+                    <div>{cake.name}</div>
                 </div>
-                <div>{cake.name}</div>
+
             </Card>
         </Col>
     );

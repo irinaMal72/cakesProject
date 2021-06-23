@@ -1,13 +1,21 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button, Card, Col, Container, Image, Row} from "react-bootstrap";
+import {useParams} from 'react-router-dom';
+import {fetchOneCake} from "../http/cakeAPI";
 
 const CakePage = () => {
-    const cake={id:1, name: 'Сладкоежка', price: 1500, img: '', description: 'Домашний бисквит с прослойкой из вареной сгущенки. Оформлен дробленым арахисом, шоколадной глазурью и ванильным гелем.'}
+    const [cake,setCake] = useState({info:[]})
+    const {id} = useParams()
+
+    useEffect(()=>{
+        fetchOneCake(id).then(data => setCake(data))
+    },[])
+    console.log({id})
     return (
         <Container className="mt-3">
             <Row>
                 <Col md={4}>
-                    <Image width={300} height={300} src={cake.img}/>
+                    <Image width={300} height={300} src={process.env.REACT_APP_API_URL + cake.img}/>
                 </Col>
                 <Col md={4}>
                     <Row className="d-flex align-items-center">

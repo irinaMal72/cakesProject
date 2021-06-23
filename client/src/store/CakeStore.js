@@ -3,17 +3,11 @@ import {makeAutoObservable} from "mobx";
 export  default class UserStore{
     constructor() {
         this._types=[]
-        this._cakes=[
-            {id:1, name: 'Сладкоежка'},
-            {id:2, name: 'Муравейник'},
-            {id:3, name: 'Наполеон'},
-            {id:4, name: 'Красный бархат'},
-            {id:5, name: 'Сметанник'},
-            {id:6, name: 'Медовик'},
-
-        ]
-
+        this._cakes=[]
         this._selectedType={}
+        this._page = 1
+        this._totalCount = 0
+        this._limit = 3
         makeAutoObservable(this)
     }
 
@@ -28,6 +22,12 @@ export  default class UserStore{
     setSelectedType(type){
         this._selectedType=type
     }
+    setPage(page) {
+        this._page = page
+    }
+    setTotalCount(count) {
+        this._totalCount = count
+    }
 
     get types() {
         return this._types
@@ -38,7 +38,17 @@ export  default class UserStore{
     }
 
     get selectedType() {
+        this.setPage(1)
         return this._selectedType
+    }
+    get totalCount() {
+        return this._totalCount
+    }
+    get page() {
+        return this._page
+    }
+    get limit() {
+        return this._limit
     }
 
 }
